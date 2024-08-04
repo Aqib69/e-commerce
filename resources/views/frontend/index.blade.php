@@ -11,27 +11,27 @@
     <!-- feature Section -->
     <section id="feature-section" class="section-pa1">
         <div class="fe-box">
-            <img src="{{url('frontend/image/features/f1.png')}}" alt="">
+            <img src="{{ url('frontend/image/features/f1.png') }}" alt="">
             <h6>Free Shipping</h6>
         </div>
         <div class="fe-box">
-            <img src="{{url('frontend/image/features/f2.png')}}" alt="">
+            <img src="{{ url('frontend/image/features/f2.png') }}" alt="">
             <h6>Online Order</h6>
         </div>
         <div class="fe-box">
-            <img src="{{url('frontend/image/features/f3.png')}}" alt="">
+            <img src="{{ url('frontend/image/features/f3.png') }}" alt="">
             <h6>Save Money</h6>
         </div>
         <div class="fe-box">
-            <img src="{{url('frontend/image/features/f4.png')}}" alt="">
+            <img src="{{ url('frontend/image/features/f4.png') }}" alt="">
             <h6>Promotions</h6>
         </div>
         <div class="fe-box">
-            <img src="{{url('frontend/image/features/f5.png')}}" alt="">
+            <img src="{{ url('frontend/image/features/f5.png') }}" alt="">
             <h6>Happy Sell</h6>
         </div>
         <div class="fe-box">
-            <img src="{{url('frontend/image/features/f6.png')}}" alt="">
+            <img src="{{ url('frontend/image/features/f6.png') }}" alt="">
             <h6>24/7 Support</h6>
         </div>
     </section>
@@ -41,8 +41,27 @@
         <p>Summer Collection New Designs</p>
         <div class="pro-container" id="data-output">
             <!-- Populated from the javascript file -->
+            @foreach ($products as $product)
+                <div class="pro" onclick="window.location.href='{{ url('/product') }}';">
+                    <img src='data:image/jpeg;base64,{{ base64_encode($product->image) }}' alt="">
+                    <div class="desc">
+                        <span>{{ $product->brand }}</span>
+                        <h5>{{ $product->description }}</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>{{ $product->price }}</h4>
+                    </div>
+                    <a href=""><i class="fa-solid fa-cart-shopping cart"></i></a>
+                </div>
+            @endforeach
         </div>
     </section>
+
     <!-- Banner Section -->
     <section id="banner" class="section-mr1">
         <h4>Repair Service</h4>
@@ -55,6 +74,24 @@
         <p>Summer Collection New Designs</p>
         <div class="pro-container" id="data-output2">
             <!-- Populated from the javascript file -->
+            @foreach ($arrivals as $arrival)
+                <div class="pro" onclick="window.location.href='{{ url('/product') }}';">
+                    <img src='data:image/jpeg;base64,{{ base64_encode($arrival->image) }}' alt="">
+                    <div class="desc">
+                        <span>{{ $arrival->brand }}</span>
+                        <h5>{{ $arrival->description }}</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>{{ $arrival->price }}</h4>
+                    </div>
+                    <a href=""><i class="fa-solid fa-cart-shopping cart"></i></a>
+                </div>
+            @endforeach
         </div>
     </section>
     <!-- sm banner -->
